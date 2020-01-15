@@ -50,3 +50,4 @@ DBSettingsMovie.txt
 *.xml
 *.mf
 *.sql
+movies/.DS_Store
