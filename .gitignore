@@ -47,3 +47,6 @@ nbproject/project.properties
 *.properties
 DBSettingsMovie.txt
 *.mpg
+*.xml
+*.mf
+*.sql
