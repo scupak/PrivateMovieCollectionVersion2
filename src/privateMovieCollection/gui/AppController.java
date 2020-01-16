@@ -214,7 +214,7 @@ public class AppController implements Initializable {
      * @throws IOException 
      */
     @FXML
-    private void play(ActionEvent event) throws IOException {
+    private void play(ActionEvent event) {
         Date lastview = new Date();
         
         if(listSelection == listSelection.MOVIES) {
@@ -227,8 +227,16 @@ public class AppController implements Initializable {
                 alert.setTitle("eror");
                 alert.setHeaderText("eror");
                 alert.setContentText(ex.toString());
-
                 alert.showAndWait();
+                
+            } catch (IOException ex) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+                alert.showAndWait();
+                
+
             }
         } else if(listSelection == listSelection.MOVIESINCATEGORY) {
             try {
@@ -237,6 +245,13 @@ public class AppController implements Initializable {
                 movieUpdate.setLastview(lastview);
                 appModel.updateMovie(movieUpdate);
             } catch (PmcDalException ex) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+
+                alert.showAndWait();
+            } catch (IOException ex) {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("eror");
                 alert.setHeaderText("eror");
@@ -253,17 +268,25 @@ public class AppController implements Initializable {
      * @throws IOException 
      */
     @FXML
-    private void newMovie(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-
-        Parent root = (Parent) fxmlLoader.load(getClass().getResource("NewMovie.fxml").openStream());
-        NewMovieController cont = (NewMovieController) fxmlLoader.getController();
-        cont.setAppModel(appModel);
-        Stage stage = new Stage();
-        stage.setTitle("New/Edit Movie");
-        stage.setScene(new Scene(root));
-        stage.setAlwaysOnTop(true);
-        stage.show();
+    private void newMovie(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            
+            Parent root = (Parent) fxmlLoader.load(getClass().getResource("NewMovie.fxml").openStream());
+            NewMovieController cont = (NewMovieController) fxmlLoader.getController();
+            cont.setAppModel(appModel);
+            Stage stage = new Stage();
+            stage.setTitle("New/Edit Movie");
+            stage.setScene(new Scene(root));
+            stage.setAlwaysOnTop(true);
+            stage.show();
+        } catch (IOException ex) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+                alert.showAndWait();
+        }
     }
 
     /**
@@ -272,18 +295,26 @@ public class AppController implements Initializable {
      * @throws IOException 
      */
     @FXML
-    private void editMoive(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-
-        Parent root = (Parent) fxmlLoader.load(getClass().getResource("EditMovie.fxml").openStream());
-        EditMovieController cont = (EditMovieController) fxmlLoader.getController();
-        cont.setAppModel(appModel);
-        cont.setMovie(movieList.getSelectionModel().getSelectedItem());
-        Stage stage = new Stage();
-        stage.setTitle("New/Edit Movie");
-        stage.setScene(new Scene(root));
-        stage.setAlwaysOnTop(true);
-        stage.show();
+    private void editMoive(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            
+            Parent root = (Parent) fxmlLoader.load(getClass().getResource("EditMovie.fxml").openStream());
+            EditMovieController cont = (EditMovieController) fxmlLoader.getController();
+            cont.setAppModel(appModel);
+            cont.setMovie(movieList.getSelectionModel().getSelectedItem());
+            Stage stage = new Stage();
+            stage.setTitle("New/Edit Movie");
+            stage.setScene(new Scene(root));
+            stage.setAlwaysOnTop(true);
+            stage.show();
+        } catch (IOException ex) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+                alert.showAndWait();
+        }
         
     }
 
@@ -293,18 +324,26 @@ public class AppController implements Initializable {
      * @throws IOException 
      */
     @FXML
-    private void deleteMovie(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-
-        Parent root = (Parent) fxmlLoader.load(getClass().getResource("DeleteMovie.fxml").openStream());
-        DeleteMovieController cont = (DeleteMovieController) fxmlLoader.getController();
-        cont.setAppModel(appModel);
-        cont.setMovie(movieList.getSelectionModel().getSelectedItem());
-        Stage stage = new Stage();
-        stage.setTitle("New/Edit Movie");
-        stage.setScene(new Scene(root));
-        stage.setAlwaysOnTop(true);
-        stage.show();
+    private void deleteMovie(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            
+            Parent root = (Parent) fxmlLoader.load(getClass().getResource("DeleteMovie.fxml").openStream());
+            DeleteMovieController cont = (DeleteMovieController) fxmlLoader.getController();
+            cont.setAppModel(appModel);
+            cont.setMovie(movieList.getSelectionModel().getSelectedItem());
+            Stage stage = new Stage();
+            stage.setTitle("New/Edit Movie");
+            stage.setScene(new Scene(root));
+            stage.setAlwaysOnTop(true);
+            stage.show();
+        } catch (IOException ex) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+                alert.showAndWait();
+        }
     }
 
     /**
@@ -380,17 +419,25 @@ public class AppController implements Initializable {
      * @throws IOException 
      */
     @FXML
-    private void newCategory(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-
-        Parent root = (Parent) fxmlLoader.load(getClass().getResource("NewCategory.fxml").openStream());
-        NewCategoryController cont = (NewCategoryController) fxmlLoader.getController();
-        cont.setAppModel(appModel);
-        Stage stage = new Stage();
-        stage.setTitle("New/Edit Category");
-        stage.setScene(new Scene(root));
-        stage.setAlwaysOnTop(true);
-        stage.show();
+    private void newCategory(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            
+            Parent root = (Parent) fxmlLoader.load(getClass().getResource("NewCategory.fxml").openStream());
+            NewCategoryController cont = (NewCategoryController) fxmlLoader.getController();
+            cont.setAppModel(appModel);
+            Stage stage = new Stage();
+            stage.setTitle("New/Edit Category");
+            stage.setScene(new Scene(root));
+            stage.setAlwaysOnTop(true);
+            stage.show();
+        } catch (IOException ex) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+                alert.showAndWait();
+        }
     }
 
     /**
@@ -399,18 +446,26 @@ public class AppController implements Initializable {
      * @throws IOException 
      */
     @FXML
-    private void editCategory(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-
-        Parent root = (Parent) fxmlLoader.load(getClass().getResource("EditCategory.fxml").openStream());
-        EditCategoryController cont = (EditCategoryController) fxmlLoader.getController();
-        cont.setAppModel(appModel);
-        cont.setCategory(currentlySelectedCategory);
-        Stage stage = new Stage();
-        stage.setTitle("New/Edit Category");
-        stage.setScene(new Scene(root));
-        stage.setAlwaysOnTop(true);
-        stage.show();
+    private void editCategory(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            
+            Parent root = (Parent) fxmlLoader.load(getClass().getResource("EditCategory.fxml").openStream());
+            EditCategoryController cont = (EditCategoryController) fxmlLoader.getController();
+            cont.setAppModel(appModel);
+            cont.setCategory(currentlySelectedCategory);
+            Stage stage = new Stage();
+            stage.setTitle("New/Edit Category");
+            stage.setScene(new Scene(root));
+            stage.setAlwaysOnTop(true);
+            stage.show();
+        } catch (IOException ex) {
+               Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+                alert.showAndWait();
+        }
     }
 
     /**
@@ -419,18 +474,26 @@ public class AppController implements Initializable {
      * @throws IOException 
      */
     @FXML
-    private void deleteCategory(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-
-        Parent root = (Parent) fxmlLoader.load(getClass().getResource("DeleteCategory.fxml").openStream());
-        DeleteCategoryController cont = (DeleteCategoryController) fxmlLoader.getController();
-        cont.setAppModel(appModel);
-        cont.setCategory(currentlySelectedCategory);
-        Stage stage = new Stage();
-        stage.setTitle("New/Edit Movie");
-        stage.setScene(new Scene(root));
-        stage.setAlwaysOnTop(true);
-        stage.show();
+    private void deleteCategory(ActionEvent event){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            
+            Parent root = (Parent) fxmlLoader.load(getClass().getResource("DeleteCategory.fxml").openStream());
+            DeleteCategoryController cont = (DeleteCategoryController) fxmlLoader.getController();
+            cont.setAppModel(appModel);
+            cont.setCategory(currentlySelectedCategory);
+            Stage stage = new Stage();
+            stage.setTitle("New/Edit Movie");
+            stage.setScene(new Scene(root));
+            stage.setAlwaysOnTop(true);
+            stage.show();
+        } catch (IOException ex) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+                alert.showAndWait();
+        }
     }
 
    
