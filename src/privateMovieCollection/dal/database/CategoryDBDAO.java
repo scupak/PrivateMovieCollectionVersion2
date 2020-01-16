@@ -55,9 +55,9 @@ public class CategoryDBDAO implements CategoryFacade {
             return categories;
 
         } catch (SQLServerException ex) {
-           throw new PmcDalException("culd not get all categories from database", ex);
+           throw new PmcDalException("could not get all categories from database", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not get all categories from database", ex);
+            throw new PmcDalException("could not get all categories from database", ex);
         }
 
     }
@@ -87,9 +87,9 @@ public class CategoryDBDAO implements CategoryFacade {
             return category;
 
         } catch (SQLServerException ex) {
-             throw new PmcDalException("culd not create categories", ex);
+             throw new PmcDalException("could not create categories", ex);
         } catch (SQLException ex) {
-             throw new PmcDalException("culd not create categories", ex);
+             throw new PmcDalException("could not create categories", ex);
         }
     }
 
@@ -109,9 +109,9 @@ public class CategoryDBDAO implements CategoryFacade {
             return updatedRows > 0;
 
         } catch (SQLServerException ex) {
-           throw new PmcDalException("culd not update categories", ex);
+           throw new PmcDalException("could not update categories", ex);
         } catch (SQLException ex) {
-           throw new PmcDalException("culd not update categories", ex);
+           throw new PmcDalException("could not update categories", ex);
         }
         
         
@@ -134,9 +134,9 @@ public class CategoryDBDAO implements CategoryFacade {
                 return updatedRows > 0;
 
             } catch (SQLServerException ex) {
-                throw new PmcDalException("culd not delete category from database", ex);
+                throw new PmcDalException("could not delete category from database", ex);
             } catch (SQLException ex) {
-                throw new PmcDalException("culd not delete category from database", ex);
+                throw new PmcDalException("could not delete category from database", ex);
             }
         }
 
@@ -175,9 +175,9 @@ public class CategoryDBDAO implements CategoryFacade {
             return movies;
 
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not get all movies in category from database", ex);
+            throw new PmcDalException("could not get all movies in category from database", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not get all movies in category from database", ex);
+            throw new PmcDalException("could not get all movies in category from database", ex);
         }
         
     }
@@ -199,9 +199,9 @@ public class CategoryDBDAO implements CategoryFacade {
             return ps.executeUpdate() > 0;
 
         } catch (SQLServerException ex) {
-             throw new PmcDalException("culd not add to category", ex);
+             throw new PmcDalException("could not add to category", ex);
         } catch (SQLException ex) {
-             throw new PmcDalException("culd not add to category", ex);
+             throw new PmcDalException("could not add to category", ex);
         }
     }
     
@@ -228,9 +228,9 @@ public class CategoryDBDAO implements CategoryFacade {
             return true;
 
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not clear category", ex);
+            throw new PmcDalException("could not clear category", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not clear category", ex);
+            throw new PmcDalException("could not clear category", ex);
         }
     }
     
@@ -254,9 +254,9 @@ public class CategoryDBDAO implements CategoryFacade {
             if (updatedRows > 0) return true;
 
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not clear movie from category", ex);
+            throw new PmcDalException("could not clear movie from category", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not clear movie from category", ex);
+            throw new PmcDalException("could not clear movie from category", ex);
         }
 
         return false;

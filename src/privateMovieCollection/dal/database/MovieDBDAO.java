@@ -60,9 +60,9 @@ public class MovieDBDAO implements MovieFacade {
             return movies;
 
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not get all movies from database", ex);
+            throw new PmcDalException("could not get all movies from database", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not get all movies from database", ex);
+            throw new PmcDalException("could not get all movies from database", ex);
         }
     }
 
@@ -99,9 +99,9 @@ public class MovieDBDAO implements MovieFacade {
             return movie;
 
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not create movie in database", ex);
+            throw new PmcDalException("could not create movie in database", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not create movie in database", ex);
+            throw new PmcDalException("could not create movie in database", ex);
         }
     }
 
@@ -126,9 +126,9 @@ public class MovieDBDAO implements MovieFacade {
             return updatedRows > 0;
 
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not update movie in  database", ex);
+            throw new PmcDalException("could not update movie in  database", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not update movie in database", ex);
+            throw new PmcDalException("could not update movie in database", ex);
         }
     }
 
@@ -148,9 +148,9 @@ public class MovieDBDAO implements MovieFacade {
             return updatedRows > 0;
 
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not delete movie from database", ex);
+            throw new PmcDalException("could not delete movie from database", ex);
         } catch (SQLException ex) {
-           throw new PmcDalException("culd not delete movie from database", ex);
+           throw new PmcDalException("could not delete movie from database", ex);
         }
     }
     
@@ -175,9 +175,9 @@ public class MovieDBDAO implements MovieFacade {
             
             return false;
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not find if the movie exists", ex);
+            throw new PmcDalException("could not find if the movie exists", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not find if the movie exists", ex);
+            throw new PmcDalException("could not find if the movie exists", ex);
         }
     }
     
@@ -212,9 +212,9 @@ public class MovieDBDAO implements MovieFacade {
             return categories;
 
         } catch (SQLServerException ex) {
-            throw new PmcDalException("culd not get all categories with movie from database", ex);
+            throw new PmcDalException("could not get all categories with movie from database", ex);
         } catch (SQLException ex) {
-            throw new PmcDalException("culd not get all categories with movie from database", ex);
+            throw new PmcDalException("could not get all categories with movie from database", ex);
         }
     }
 }
