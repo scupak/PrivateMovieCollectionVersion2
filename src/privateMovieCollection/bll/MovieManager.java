@@ -168,24 +168,6 @@ public class MovieManager {
         return movieDBDAO.updateMovie(movie);
     }
     
-    public static void main(String[] args) throws PmcDalException {
-        
-        //MovieFacade movieDBDAO = new MovieDBDAO();
-        // MovieManager manager = new MovieManager();
-        /*
-        ArrayList<Movie> movies = new ArrayList<>();
-         
-        movies.addAll(manager.getAllMovies());
-        
-        for (Movie movy : movies) {
-            System.out.println(movy);
-        }
-        */
-        /*  
-        for (Movie movy : manager.moviesToDelete())  {
-            System.out.println(movy +" "+ movy.getRating() +" "+ movy.getLastview());
-        }
-        */
-    }
+  
     
 }

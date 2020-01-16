@@ -262,15 +262,5 @@ public class CategoryDBDAO implements CategoryFacade {
         return false;
     }
     
-    public static void main(String[] args) {
-        ArrayList<Category> categories = new ArrayList<>();
-        
-        //CategoryDBDAO categoryDB = new CategoryDBDAO();
-        // System.out.println(categoryDB.getAllCategories());
-        //categoryDB.createCategory(new Category(0, "action") );
-        //categoryDB.updateCategory(new Category(3, "action", 0));
-        //categoryDB.deleteCategory(new Category(2, "name"));
-        //categoryDB.addToCategory(new Category(4, "name",0), new Movie(7, "title", 0, "path", new java.util.Date(),""));
-        // System.out.println(categoryDB.getAllMoviesInCategory(new Category(3, "name",0)));
-    }
+    
 }
