@@ -119,10 +119,7 @@ public class MovieManager {
              }
 
              long diff = currentdate.getTime() - movie.getLastview().getTime();
-             System.out.println(currentdate);
-             System.out.println(movie.getLastview());
-             System.out.println(diff);
-             System.out.println ("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+             
 
              if(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) >= daysin2years){
                  fordeletion = true;

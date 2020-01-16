@@ -22,6 +22,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -158,20 +160,24 @@ public class AppController implements Initializable {
         
         try {
             if(!appModel.moviesToDelete().isEmpty()){
-                List<Movie> finalResult = new ArrayList<>();
-                finalResult.addAll(appModel.moviesToDelete());
-                
-                JFrame jf=new JFrame();
-                jf.setAlwaysOnTop(true);
-                JOptionPane.showMessageDialog(jf, "remember to delete movies, that have a personal rating under 6 "
+               
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("You should take a look at your old movies");
+                alert.setHeaderText("Please remove unwanted movies");
+                alert.setContentText("Remember to delete movies, that have a personal rating under 6 "
                         + "and have not been opened from the application in more than 2 years."
                         + "\n movies pending deletion:"
                         + "\n" + appModel.moviesToDelete());
+
+                alert.showAndWait();
             }
         } catch (PmcDalException ex) {
-             JFrame jf=new JFrame();
-             jf.setAlwaysOnTop(true);
-             JOptionPane.showMessageDialog(jf, ex);
+             Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+
+                alert.showAndWait();
         }
     }
     
@@ -217,9 +223,12 @@ public class AppController implements Initializable {
                 movieList.getSelectionModel().getSelectedItem().setLastview(lastview);
                 appModel.updateMovie(movieList.getSelectionModel().getSelectedItem());
             } catch (PmcDalException ex) {
-                JFrame jf=new JFrame();
-                jf.setAlwaysOnTop(true);
-                JOptionPane.showMessageDialog(jf, ex);
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+
+                alert.showAndWait();
             }
         } else if(listSelection == listSelection.MOVIESINCATEGORY) {
             try {
@@ -228,9 +237,12 @@ public class AppController implements Initializable {
                 movieUpdate.setLastview(lastview);
                 appModel.updateMovie(movieUpdate);
             } catch (PmcDalException ex) {
-                JFrame jf=new JFrame();
-                jf.setAlwaysOnTop(true);
-                JOptionPane.showMessageDialog(jf, ex);
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("eror");
+                alert.setHeaderText("eror");
+                alert.setContentText(ex.toString());
+
+                alert.showAndWait();
             }
         }
     }
@@ -318,9 +330,12 @@ public class AppController implements Initializable {
                 listSelection  = ListSelection.CATEGORY;
                 moviesInCategory.setItems(appModel.getAllMoviesInCategory(categoryList.getSelectionModel().getSelectedItem()));
             } catch (PmcDalException ex) {
-                JFrame jf=new JFrame();
-                jf.setAlwaysOnTop(true);
-                JOptionPane.showMessageDialog(jf, ex);
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText(ex.toString());
+
+                alert.showAndWait();
             }
         }
     }
@@ -342,14 +357,20 @@ public class AppController implements Initializable {
             appModel.movieClearAdd();
            
         } catch (PmcDalException ex) {
-            JFrame jf=new JFrame();
-            jf.setAlwaysOnTop(true);
-            JOptionPane.showMessageDialog(jf, ex); 
+            Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText(ex.toString());
+
+                alert.showAndWait();
              
         } catch(NullPointerException exception){
-            JFrame jf=new JFrame();
-            jf.setAlwaysOnTop(true);
-            JOptionPane.showMessageDialog(jf, "movie already exists in category");
+            Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText(exception.toString() + " or you are adding a movie to a category twice");
+
+                alert.showAndWait();
         }
     }
 
@@ -428,9 +449,12 @@ public class AppController implements Initializable {
             int ratingQuery = (int) Math.round(minimumRatingSlider.getValue());
             appModel.search(titleQuery, filterQuery, ratingQuery);
         } catch (PmcDalException ex) {
-             JFrame jf=new JFrame();
-             jf.setAlwaysOnTop(true);
-             JOptionPane.showMessageDialog(jf, ex);
+              Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText(ex.toString());
+
+                alert.showAndWait();
         }
     }
     
@@ -448,9 +472,12 @@ public class AppController implements Initializable {
             appModel.categoriesClearAdd();
             appModel.movieClearAdd();
         } catch (PmcDalException ex) {
-             JFrame jf=new JFrame();
-             jf.setAlwaysOnTop(true);
-             JOptionPane.showMessageDialog(jf, ex);
+              Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText(ex.toString());
+
+                alert.showAndWait();
         }
     }
 

@@ -29,6 +29,7 @@ import privateMovieCollection.be.Movie;
 import java.lang.NullPointerException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
 import javax.swing.JFrame;
 import privateMovieCollection.dal.PmcDalException;
 /**
@@ -113,9 +114,11 @@ public class NewMovieController implements Initializable {
             intRaiting = Integer.parseInt(raiting);
         } catch(NumberFormatException e) {
             intRaiting = 0;
-            JFrame jf=new JFrame();
-            jf.setAlwaysOnTop(true);
-            JOptionPane.showMessageDialog(jf, "invalid input or movie with same name already exists");
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText(e.toString() + "invalid input or movie with same name already exists");
+                alert.showAndWait();
         }
         
         try {
@@ -126,14 +129,19 @@ public class NewMovieController implements Initializable {
             cancel(event);
             
         } catch(NullPointerException exeption) {
-             JFrame jf=new JFrame();
-             jf.setAlwaysOnTop(true);
-             JOptionPane.showMessageDialog(jf, "invalid input or movie with same name already exists");
+            System.out.println("samme titel");
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText(exeption.toString() + "invalid input or movie with same name already exists");
+                alert.showAndWait();
         
         } catch (PmcDalException ex) {
-             JFrame jf=new JFrame();
-             jf.setAlwaysOnTop(true);
-             JOptionPane.showMessageDialog(jf, ex);
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText(ex.toString() + "invalid input or movie with same name already exists");
+                alert.showAndWait();
         }
        
     }
@@ -151,7 +159,11 @@ public class NewMovieController implements Initializable {
         filename = fd.getFile();
         directory = fd.getDirectory();
         if (filename == null) {
-            JOptionPane.showMessageDialog(null, "Add song canceled");
+             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("error");
+                alert.setHeaderText("error");
+                alert.setContentText( "add movie canceled");
+                alert.showAndWait();
         } else {
             fileTextField.setText("movies/" + filename);
         }
