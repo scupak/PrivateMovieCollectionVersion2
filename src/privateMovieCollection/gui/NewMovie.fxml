@@ -7,37 +7,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="286.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="privateMovieCollection.gui.NewMovieController">
+<AnchorPane id="AnchorPane" prefHeight="278.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="privateMovieCollection.gui.NewMovieController">
    <children>
-      <Label layoutX="54.0" layoutY="30.0" text="Title:">
+      <Label layoutX="63.0" layoutY="30.0" text="Title:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="CategoryLabel" layoutX="50.0" layoutY="84.0" text="Category:">
+      <Label fx:id="TimeLabel" layoutX="54.0" layoutY="70.0" text="Raiting">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="TimeLabel" layoutX="60.0" layoutY="132.0" text="Raiting">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="fileLabel" layoutX="57.0" layoutY="180.0" text="File:">
+      <Label fx:id="fileLabel" layoutX="66.0" layoutY="125.0" text="File:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="movieTitleTextField" layoutX="151.0" layoutY="31.0" />
-      <Button fx:id="Cancel" layoutX="162.0" layoutY="246.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
-      <Button fx:id="Save" layoutX="238.0" layoutY="246.0" mnemonicParsing="false" onAction="#Save" text="Save" />
-      <Button fx:id="movieChoiceButton" layoutX="151.0" layoutY="207.0" mnemonicParsing="false" onAction="#movieChoiceButton" prefHeight="26.0" prefWidth="99.0" text="Choose Movie" />
-      <TextField fx:id="fileTextField" layoutX="150.0" layoutY="181.0" />
-      <TextField fx:id="categoryTextField" layoutX="151.0" layoutY="85.0" promptText="i.e: Action, Drama..." />
-      <Slider fx:id="raitingSlider" layoutX="154.0" layoutY="139.0" />
-      <Label fx:id="zero" layoutX="146.0" layoutY="150.0" text="0" />
-      <Label fx:id="hundred" layoutX="279.0" layoutY="150.0" text="100" />
-      <Label fx:id="raitingLabel" layoutX="205.0" layoutY="150.0" text="Raiting" />
+      <Button fx:id="Cancel" layoutX="162.0" layoutY="200.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+      <Button fx:id="Save" layoutX="233.0" layoutY="200.0" mnemonicParsing="false" onAction="#Save" text="Save" />
+      <Button fx:id="movieChoiceButton" layoutX="175.0" layoutY="162.0" mnemonicParsing="false" onAction="#movieChoiceButton" prefHeight="26.0" prefWidth="99.0" text="Choose Movie" />
+      <TextField fx:id="fileTextField" layoutX="149.0" layoutY="126.0" />
+      <Slider fx:id="raitingSlider" layoutX="154.0" layoutY="77.0" />
+      <Label fx:id="zero" layoutX="158.0" layoutY="97.0" text="0" />
+      <Label fx:id="hundred" layoutX="269.0" layoutY="97.0" text="100" />
+      <Label fx:id="raitingLabel" layoutX="205.0" layoutY="97.0" text="Raiting" />
    </children>
 </AnchorPane>
