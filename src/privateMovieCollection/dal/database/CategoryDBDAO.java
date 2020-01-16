@@ -113,6 +113,8 @@ public class CategoryDBDAO implements CategoryFacade {
         } catch (SQLException ex) {
            throw new PmcDalException("culd not update categories", ex);
         }
+        
+        
     }
 
     /**
@@ -177,6 +179,7 @@ public class CategoryDBDAO implements CategoryFacade {
         } catch (SQLException ex) {
             throw new PmcDalException("culd not get all movies in category from database", ex);
         }
+        
     }
     
     /**
