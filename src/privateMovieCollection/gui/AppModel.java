@@ -200,7 +200,7 @@ public class AppModel {
      * @throws privateMovieCollection.dal.PmcDalException 
      */
     public boolean clearMovieFromCategory(Category category, Movie movie) throws PmcDalException {
-        boolean result = categoryManager.clearMovieFromPlayList(category, movie);
+        boolean result = categoryManager.clearMovieFromCategory(category, movie);
         moviesInCategoriesClearAdd(category);
         categoriesClearAdd();
       

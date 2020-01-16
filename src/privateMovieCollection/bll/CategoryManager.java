@@ -121,7 +121,7 @@ public class CategoryManager {
      * @return 
      * @throws privateMovieCollection.dal.PmcDalException 
      */
-    public boolean clearMovieFromPlayList(Category category, Movie movie)throws PmcDalException{
+    public boolean clearMovieFromCategory(Category category, Movie movie)throws PmcDalException{
         return CategoryDBDAO.clearMovieFromCategory(category, movie);
     }
     
