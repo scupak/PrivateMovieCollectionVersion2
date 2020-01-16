@@ -48,8 +48,6 @@ public class NewMovieController implements Initializable {
     private String directory = "";
     
     @FXML
-    private Label CategoryLabel;
-    @FXML
     private Label TimeLabel;
     @FXML
     private Label fileLabel;
@@ -60,8 +58,6 @@ public class NewMovieController implements Initializable {
     private Button Save;
     @FXML
     private TextField fileTextField;
-    @FXML
-    private TextField categoryTextField;
     @FXML
     private Button movieChoiceButton;
     @FXML

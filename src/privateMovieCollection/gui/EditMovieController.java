@@ -43,8 +43,6 @@ public class EditMovieController implements Initializable {
     private String directory = "";
     
     @FXML
-    private Label CategoryLabel;
-    @FXML
     private Label TimeLabel;
     @FXML
     private Label fileLabel;
@@ -58,8 +56,7 @@ public class EditMovieController implements Initializable {
     private Button movieChoiceButton;
     @FXML
     private TextField fileTextField;
-    @FXML
-    private TextField categoryTextField;
+ 
     @FXML
     private Slider raitingSlider;
     @FXML
@@ -97,7 +94,6 @@ public class EditMovieController implements Initializable {
         this.movie = movie;
 
         movieTitleTextField.setText(movie.getTitle());
-        categoryTextField.setText(movie.getCategories());
         raitingSlider.setValue(movie.getRating());
         fileTextField.setText(movie.getPath());
     }
@@ -120,7 +116,6 @@ public class EditMovieController implements Initializable {
     @FXML
     private void save(ActionEvent event) {
         String title = movieTitleTextField.getText(); 
-        String category = categoryTextField.getText();
         String moviePath = fileTextField.getText();
         String raiting = raitingLabel.getText();
         int intRaiting;
