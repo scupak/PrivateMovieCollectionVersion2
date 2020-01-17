@@ -27,9 +27,9 @@ public class MovieManager {
 
     /**
      * Movie Manager Constructor
-     * @throws java.io.IOException
+     * @throws privateMovieCollection.dal.PmcDalException
      */
-    public MovieManager() throws IOException {
+    public MovieManager() throws PmcDalException {
         movieDBDAO = new MovieDBDAO();
     }
     

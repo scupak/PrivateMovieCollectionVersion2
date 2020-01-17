@@ -9,7 +9,6 @@ package privateMovieCollection.gui;
 /*All the imports are defined here,the class needs to know witch other classes, packages or libraries it has acces to,
 this also defines how the class fits into the programs design structure.*/
 import java.awt.FileDialog;
-import java.io.File;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -19,18 +18,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 import privateMovieCollection.be.Movie;
 import java.lang.NullPointerException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.control.Alert;
-import javax.swing.JFrame;
 import privateMovieCollection.dal.PmcDalException;
 /**
  * FXML Controller class

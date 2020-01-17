@@ -28,8 +28,9 @@ public class CategoryDBDAO implements CategoryFacade {
     private final DatabaseConnector dbCon;
     /**
      * MovieDBDAO constructor
+     * @throws privateMovieCollection.dal.PmcDalException
      */
-    public CategoryDBDAO() throws IOException {
+    public CategoryDBDAO() throws PmcDalException {
         dbCon = new DatabaseConnector();
     }
     
@@ -149,6 +150,7 @@ public class CategoryDBDAO implements CategoryFacade {
      * @param category
      * @return list of movies
      */
+    @Override
     public List<Movie> getAllMoviesInCategory(Category category) throws PmcDalException{
         ArrayList<Movie> movies = new ArrayList<>();
 
@@ -189,6 +191,7 @@ public class CategoryDBDAO implements CategoryFacade {
      * @param movie
      * @return boolean
      */
+    @Override
     public boolean addToCategory(Category category, Movie movie) throws PmcDalException{
         try ( Connection con = dbCon.getConnection()) {
             PreparedStatement ps = con.prepareStatement("INSERT INTO category_movie "
@@ -211,6 +214,7 @@ public class CategoryDBDAO implements CategoryFacade {
      * @param category
      * @return boolean
      */
+    @Override
     public boolean clearCategory(Category category) throws PmcDalException{
         try ( Connection con = dbCon.getConnection()) {
             PreparedStatement ps = con.prepareStatement("DELETE FROM category_movie WHERE categoryid = ?");
@@ -241,6 +245,7 @@ public class CategoryDBDAO implements CategoryFacade {
      * @param movie
      * @return boolean indicating if the deletion was successfull
      */
+    @Override
     public boolean clearMovieFromCategory(Category category, Movie movie) throws PmcDalException{
         try ( Connection con = dbCon.getConnection()) {
             PreparedStatement ps = con.prepareStatement(

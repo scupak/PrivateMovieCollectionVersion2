@@ -29,8 +29,9 @@ public class MovieDBDAO implements MovieFacade {
     private final DatabaseConnector dbCon;
     /**
      * MovieDBDAO constructor
+     * @throws privateMovieCollection.dal.PmcDalException
      */
-    public MovieDBDAO() throws IOException {
+    public MovieDBDAO() throws PmcDalException {
         dbCon = new DatabaseConnector();
     }
     

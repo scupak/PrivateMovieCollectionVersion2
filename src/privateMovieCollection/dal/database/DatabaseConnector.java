@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import privateMovieCollection.dal.PmcDalException;
 
 /**
  *
@@ -27,16 +28,22 @@ public class DatabaseConnector {
      * DatabaseConnector constructor
      * the class takes the info from the DBSettings.txt file and establishes a connection to the database. 
      */
-    public DatabaseConnector() throws FileNotFoundException, IOException{
-        Properties props = new Properties();
-       
-        props.load(new FileReader("DBSettings.txt"));
-        
-        dataSource = new SQLServerDataSource();
-        dataSource.setDatabaseName(props.getProperty("database"));
-        dataSource.setUser(props.getProperty("user"));
-        dataSource.setPassword(props.getProperty("password"));
-        dataSource.setServerName(props.getProperty("server"));
+    public DatabaseConnector() throws PmcDalException{
+        try {
+            Properties props = new Properties();
+            
+            props.load(new FileReader("DBSettings.txt"));
+            
+            dataSource = new SQLServerDataSource();
+            dataSource.setDatabaseName(props.getProperty("database"));
+            dataSource.setUser(props.getProperty("user"));
+            dataSource.setPassword(props.getProperty("password"));
+            dataSource.setServerName(props.getProperty("server"));
+        } catch (FileNotFoundException ex) {
+           throw new PmcDalException("there was a problem with filereading", ex);
+        } catch (IOException ex) {
+            throw new PmcDalException("there was a problem with filereading", ex);
+        }
     }
 
     /**

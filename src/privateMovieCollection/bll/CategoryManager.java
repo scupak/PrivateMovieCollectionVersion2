@@ -25,7 +25,7 @@ public class CategoryManager {
      * Category Manager Constructor
      * @throws java.io.IOException
      */
-    public CategoryManager() throws IOException{
+    public CategoryManager() throws PmcDalException{
         CategoryDBDAO = new CategoryDBDAO();
     }
     
